@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "prepare": "panda codegen",
-    "build": "remix build",
+    "build": "remix build && pnpm --prefix ./nitro-server build",
     "dev": "remix dev -c \"pnpm --prefix ./nitro-server dev\" --manual",
-    "start": "remix-serve ./build/index.js",
+    "start": "pnpm --prefix ./nitro-server start",
     "typecheck": "tsc"
   },
   "dependencies": {

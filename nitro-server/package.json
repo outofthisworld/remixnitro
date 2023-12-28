@@ -5,7 +5,8 @@
     "prepare": "nitropack prepare",
     "dev": "nitropack dev",
     "build": "nitropack build",
-    "preview": "node .output/server/index.mjs"
+    "preview": "node .build/nitro-server-build/server/index.mjs",
+    "start": "node .build/nitro-server-build/server/index.mjs"
   },
   "dependencies": {
     "nitropack": "latest"
