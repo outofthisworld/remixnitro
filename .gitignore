@@ -5,3 +5,7 @@ node_modules
 /public/build
 .env
 .vercel
+/nitro-server/.nitrodev
+/nitro-server/.build
+/nitro-server/node_modules
+*/**/*.env*
