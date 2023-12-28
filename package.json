@@ -4,7 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "prepare": "panda codegen && pnpm --prefix ./nitro-server install",
+    "prepare": "panda codegen && pnpm --prefix ./nitro-server install --no-frozen-lockfile",
     "build": "remix build && pnpm --prefix ./nitro-server build",
     "dev": "remix dev -c \"pnpm --prefix ./nitro-server dev\" --manual",
     "start": "pnpm --prefix ./nitro-server start",
