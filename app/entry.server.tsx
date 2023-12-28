@@ -1,18 +1,29 @@
-import { handleRequest } from '@vercel/remix';
-import { RemixServer } from '@remix-run/react';
-import type { EntryContext } from '@vercel/remix';
- 
-export default function (
+import { RemixServer } from "@remix-run/react";
+import type { EntryContext, HandleDataRequestFunction } from "~/runtime.server";
+import { handleRequest } from "~/runtime.server";
+import { withETag, withSecurityHeaders, xssProtection } from "./helpers.server";
+
+export default async function (
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
+  remixContext: EntryContext
 ) {
   const remixServer = <RemixServer context={remixContext} url={request.url} />;
-  return handleRequest(
+
+  const response = (await handleRequest(
     request,
     responseStatusCode,
     responseHeaders,
-    remixServer,
-  );
+    remixServer
+  )) as Response;
+
+  return await withETag(request, response);
 }
+
+export let handleDataRequest: HandleDataRequestFunction = async (
+  response: Response,
+  { request }
+) => {
+  return withETag(request, response);
+};

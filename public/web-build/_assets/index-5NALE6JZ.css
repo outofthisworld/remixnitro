@@ -1,0 +1,803 @@
+/* app/index.css */
+@layer reset, base, tokens, recipes, utilities;
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--global-color-border, currentColor);
+  }
+  html {
+    line-height: 1.5;
+    --font-fallback:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      "Noto Sans",
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji";
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    font-family: var(--global-font-body, var(--font-fallback));
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  body {
+    height: 100%;
+    line-height: inherit;
+  }
+  img {
+    border-style: none;
+  }
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    vertical-align: middle;
+  }
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+  ol,
+  ul {
+    list-style: none;
+  }
+  code,
+  kbd,
+  pre,
+  samp {
+    font-size: 1em;
+  }
+  button,
+  [type=button],
+  [type=reset],
+  [type=submit] {
+    -webkit-appearance: button;
+    background-color: transparent;
+    background-image: none;
+  }
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    color: inherit;
+  }
+  button,
+  select {
+    text-transform: none;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    opacity: 1;
+    color: var(--global-color-placeholder, #9ca3af);
+  }
+  textarea {
+    resize: vertical;
+  }
+  summary {
+    display: list-item;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -.25em;
+  }
+  sup {
+    top: -.5em;
+  }
+  dialog {
+    padding: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  abbr:where([title]) {
+    text-decoration: underline dotted;
+  }
+  b,
+  strong {
+    font-weight: bolder;
+  }
+  code,
+  kbd,
+  samp,
+  pre {
+    font-size: 1em;
+    --font-mono-fallback:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New";
+    font-family: var(--global-font-mono, var(--font-mono-fallback));
+  }
+  input[type=text],
+  input[type=email],
+  input[type=search],
+  input[type=password] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  input[type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+  }
+  ::-webkit-search-decoration,
+  ::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    height: auto;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+}
+@layer base {
+  :root {
+    --made-with-panda: "\1f43c";
+  }
+  *,
+  *:before,
+  *:after,
+  ::backdrop {
+    --blur: !important;
+    --brightness: !important;
+    --contrast: !important;
+    --grayscale: !important;
+    --hue-rotate: !important;
+    --invert: !important;
+    --saturate: !important;
+    --sepia: !important;
+    --drop-shadow: !important;
+    --backdrop-blur: !important;
+    --backdrop-brightness: !important;
+    --backdrop-contrast: !important;
+    --backdrop-grayscale: !important;
+    --backdrop-hue-rotate: !important;
+    --backdrop-invert: !important;
+    --backdrop-opacity: !important;
+    --backdrop-saturate: !important;
+    --backdrop-sepia: !important;
+    --scroll-snap-strictness: proximity;
+    --border-spacing-x: 0;
+    --border-spacing-y: 0;
+    --translate-x: 0;
+    --translate-y: 0;
+    --rotate: 0;
+    --skew-x: 0;
+    --skew-y: 0;
+    --scale-x: 1;
+    --scale-y: 1;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+}
+@layer tokens {
+  :where(:root, :host) {
+    --__proxylist__-borders-none: none;
+    --__proxylist__-easings-default: cubic-bezier(.4, 0, .2, 1);
+    --__proxylist__-easings-linear: linear;
+    --__proxylist__-easings-in: cubic-bezier(.4, 0, 1, 1);
+    --__proxylist__-easings-out: cubic-bezier(0, 0, .2, 1);
+    --__proxylist__-easings-in-out: cubic-bezier(.4, 0, .2, 1);
+    --__proxylist__-durations-fastest: 50ms;
+    --__proxylist__-durations-faster: .1s;
+    --__proxylist__-durations-fast: .15s;
+    --__proxylist__-durations-normal: .2s;
+    --__proxylist__-durations-slow: .3s;
+    --__proxylist__-durations-slower: .4s;
+    --__proxylist__-durations-slowest: .5s;
+    --__proxylist__-radii-xs: .125rem;
+    --__proxylist__-radii-sm: .25rem;
+    --__proxylist__-radii-md: .375rem;
+    --__proxylist__-radii-lg: .5rem;
+    --__proxylist__-radii-xl: .75rem;
+    --__proxylist__-radii-2xl: 1rem;
+    --__proxylist__-radii-3xl: 1.5rem;
+    --__proxylist__-radii-full: 9999px;
+    --__proxylist__-font-weights-thin: 100;
+    --__proxylist__-font-weights-extralight: 200;
+    --__proxylist__-font-weights-light: 300;
+    --__proxylist__-font-weights-normal: 400;
+    --__proxylist__-font-weights-medium: 500;
+    --__proxylist__-font-weights-semibold: 600;
+    --__proxylist__-font-weights-bold: 700;
+    --__proxylist__-font-weights-extrabold: 800;
+    --__proxylist__-font-weights-black: 900;
+    --__proxylist__-line-heights-none: 1;
+    --__proxylist__-line-heights-tight: 1.25;
+    --__proxylist__-line-heights-snug: 1.375;
+    --__proxylist__-line-heights-normal: 1.5;
+    --__proxylist__-line-heights-relaxed: 1.625;
+    --__proxylist__-line-heights-loose: 2;
+    --__proxylist__-fonts-sans:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      "Noto Sans",
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji";
+    --__proxylist__-fonts-serif:
+      ui-serif,
+      Georgia,
+      Cambria,
+      "Times New Roman",
+      Times,
+      serif;
+    --__proxylist__-fonts-mono:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace;
+    --__proxylist__-letter-spacings-tighter: -.05em;
+    --__proxylist__-letter-spacings-tight: -.025em;
+    --__proxylist__-letter-spacings-normal: 0em;
+    --__proxylist__-letter-spacings-wide: .025em;
+    --__proxylist__-letter-spacings-wider: .05em;
+    --__proxylist__-letter-spacings-widest: .1em;
+    --__proxylist__-font-sizes-2xs: .5rem;
+    --__proxylist__-font-sizes-xs: .75rem;
+    --__proxylist__-font-sizes-sm: .875rem;
+    --__proxylist__-font-sizes-md: 1rem;
+    --__proxylist__-font-sizes-lg: 1.125rem;
+    --__proxylist__-font-sizes-xl: 1.25rem;
+    --__proxylist__-font-sizes-2xl: 1.5rem;
+    --__proxylist__-font-sizes-3xl: 1.875rem;
+    --__proxylist__-font-sizes-4xl: 2.25rem;
+    --__proxylist__-font-sizes-5xl: 3rem;
+    --__proxylist__-font-sizes-6xl: 3.75rem;
+    --__proxylist__-font-sizes-7xl: 4.5rem;
+    --__proxylist__-font-sizes-8xl: 6rem;
+    --__proxylist__-font-sizes-9xl: 8rem;
+    --__proxylist__-shadows-xs: 0 1px 2px 0 rgb(0 0 0 / .05);
+    --__proxylist__-shadows-sm: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);
+    --__proxylist__-shadows-md: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+    --__proxylist__-shadows-lg: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+    --__proxylist__-shadows-xl: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);
+    --__proxylist__-shadows-2xl: 0 25px 50px -12px rgb(0 0 0 / .25);
+    --__proxylist__-shadows-inner: inset 0 2px 4px 0 rgb(0 0 0 / .05);
+    --__proxylist__-colors-current: currentColor;
+    --__proxylist__-colors-black: #000;
+    --__proxylist__-colors-white: #fff;
+    --__proxylist__-colors-transparent: rgb(0 0 0 / 0);
+    --__proxylist__-colors-rose-50: #fff1f2;
+    --__proxylist__-colors-rose-100: #ffe4e6;
+    --__proxylist__-colors-rose-200: #fecdd3;
+    --__proxylist__-colors-rose-300: #fda4af;
+    --__proxylist__-colors-rose-400: #fb7185;
+    --__proxylist__-colors-rose-500: #f43f5e;
+    --__proxylist__-colors-rose-600: #e11d48;
+    --__proxylist__-colors-rose-700: #be123c;
+    --__proxylist__-colors-rose-800: #9f1239;
+    --__proxylist__-colors-rose-900: #881337;
+    --__proxylist__-colors-rose-950: #4c0519;
+    --__proxylist__-colors-pink-50: #fdf2f8;
+    --__proxylist__-colors-pink-100: #fce7f3;
+    --__proxylist__-colors-pink-200: #fbcfe8;
+    --__proxylist__-colors-pink-300: #f9a8d4;
+    --__proxylist__-colors-pink-400: #f472b6;
+    --__proxylist__-colors-pink-500: #ec4899;
+    --__proxylist__-colors-pink-600: #db2777;
+    --__proxylist__-colors-pink-700: #be185d;
+    --__proxylist__-colors-pink-800: #9d174d;
+    --__proxylist__-colors-pink-900: #831843;
+    --__proxylist__-colors-pink-950: #500724;
+    --__proxylist__-colors-fuchsia-50: #fdf4ff;
+    --__proxylist__-colors-fuchsia-100: #fae8ff;
+    --__proxylist__-colors-fuchsia-200: #f5d0fe;
+    --__proxylist__-colors-fuchsia-300: #f0abfc;
+    --__proxylist__-colors-fuchsia-400: #e879f9;
+    --__proxylist__-colors-fuchsia-500: #d946ef;
+    --__proxylist__-colors-fuchsia-600: #c026d3;
+    --__proxylist__-colors-fuchsia-700: #a21caf;
+    --__proxylist__-colors-fuchsia-800: #86198f;
+    --__proxylist__-colors-fuchsia-900: #701a75;
+    --__proxylist__-colors-fuchsia-950: #4a044e;
+    --__proxylist__-colors-purple-50: #faf5ff;
+    --__proxylist__-colors-purple-100: #f3e8ff;
+    --__proxylist__-colors-purple-200: #e9d5ff;
+    --__proxylist__-colors-purple-300: #d8b4fe;
+    --__proxylist__-colors-purple-400: #c084fc;
+    --__proxylist__-colors-purple-500: #a855f7;
+    --__proxylist__-colors-purple-600: #9333ea;
+    --__proxylist__-colors-purple-700: #7e22ce;
+    --__proxylist__-colors-purple-800: #6b21a8;
+    --__proxylist__-colors-purple-900: #581c87;
+    --__proxylist__-colors-purple-950: #3b0764;
+    --__proxylist__-colors-violet-50: #f5f3ff;
+    --__proxylist__-colors-violet-100: #ede9fe;
+    --__proxylist__-colors-violet-200: #ddd6fe;
+    --__proxylist__-colors-violet-300: #c4b5fd;
+    --__proxylist__-colors-violet-400: #a78bfa;
+    --__proxylist__-colors-violet-500: #8b5cf6;
+    --__proxylist__-colors-violet-600: #7c3aed;
+    --__proxylist__-colors-violet-700: #6d28d9;
+    --__proxylist__-colors-violet-800: #5b21b6;
+    --__proxylist__-colors-violet-900: #4c1d95;
+    --__proxylist__-colors-violet-950: #2e1065;
+    --__proxylist__-colors-indigo-50: #eef2ff;
+    --__proxylist__-colors-indigo-100: #e0e7ff;
+    --__proxylist__-colors-indigo-200: #c7d2fe;
+    --__proxylist__-colors-indigo-300: #a5b4fc;
+    --__proxylist__-colors-indigo-400: #818cf8;
+    --__proxylist__-colors-indigo-500: #6366f1;
+    --__proxylist__-colors-indigo-600: #4f46e5;
+    --__proxylist__-colors-indigo-700: #4338ca;
+    --__proxylist__-colors-indigo-800: #3730a3;
+    --__proxylist__-colors-indigo-900: #312e81;
+    --__proxylist__-colors-indigo-950: #1e1b4b;
+    --__proxylist__-colors-blue-50: #eff6ff;
+    --__proxylist__-colors-blue-100: #dbeafe;
+    --__proxylist__-colors-blue-200: #bfdbfe;
+    --__proxylist__-colors-blue-300: #93c5fd;
+    --__proxylist__-colors-blue-400: #60a5fa;
+    --__proxylist__-colors-blue-500: #3b82f6;
+    --__proxylist__-colors-blue-600: #2563eb;
+    --__proxylist__-colors-blue-700: #1d4ed8;
+    --__proxylist__-colors-blue-800: #1e40af;
+    --__proxylist__-colors-blue-900: #1e3a8a;
+    --__proxylist__-colors-blue-950: #172554;
+    --__proxylist__-colors-sky-50: #f0f9ff;
+    --__proxylist__-colors-sky-100: #e0f2fe;
+    --__proxylist__-colors-sky-200: #bae6fd;
+    --__proxylist__-colors-sky-300: #7dd3fc;
+    --__proxylist__-colors-sky-400: #38bdf8;
+    --__proxylist__-colors-sky-500: #0ea5e9;
+    --__proxylist__-colors-sky-600: #0284c7;
+    --__proxylist__-colors-sky-700: #0369a1;
+    --__proxylist__-colors-sky-800: #075985;
+    --__proxylist__-colors-sky-900: #0c4a6e;
+    --__proxylist__-colors-sky-950: #082f49;
+    --__proxylist__-colors-cyan-50: #ecfeff;
+    --__proxylist__-colors-cyan-100: #cffafe;
+    --__proxylist__-colors-cyan-200: #a5f3fc;
+    --__proxylist__-colors-cyan-300: #67e8f9;
+    --__proxylist__-colors-cyan-400: #22d3ee;
+    --__proxylist__-colors-cyan-500: #06b6d4;
+    --__proxylist__-colors-cyan-600: #0891b2;
+    --__proxylist__-colors-cyan-700: #0e7490;
+    --__proxylist__-colors-cyan-800: #155e75;
+    --__proxylist__-colors-cyan-900: #164e63;
+    --__proxylist__-colors-cyan-950: #083344;
+    --__proxylist__-colors-teal-50: #f0fdfa;
+    --__proxylist__-colors-teal-100: #ccfbf1;
+    --__proxylist__-colors-teal-200: #99f6e4;
+    --__proxylist__-colors-teal-300: #5eead4;
+    --__proxylist__-colors-teal-400: #2dd4bf;
+    --__proxylist__-colors-teal-500: #14b8a6;
+    --__proxylist__-colors-teal-600: #0d9488;
+    --__proxylist__-colors-teal-700: #0f766e;
+    --__proxylist__-colors-teal-800: #115e59;
+    --__proxylist__-colors-teal-900: #134e4a;
+    --__proxylist__-colors-teal-950: #042f2e;
+    --__proxylist__-colors-emerald-50: #ecfdf5;
+    --__proxylist__-colors-emerald-100: #d1fae5;
+    --__proxylist__-colors-emerald-200: #a7f3d0;
+    --__proxylist__-colors-emerald-300: #6ee7b7;
+    --__proxylist__-colors-emerald-400: #34d399;
+    --__proxylist__-colors-emerald-500: #10b981;
+    --__proxylist__-colors-emerald-600: #059669;
+    --__proxylist__-colors-emerald-700: #047857;
+    --__proxylist__-colors-emerald-800: #065f46;
+    --__proxylist__-colors-emerald-900: #064e3b;
+    --__proxylist__-colors-emerald-950: #022c22;
+    --__proxylist__-colors-green-50: #f0fdf4;
+    --__proxylist__-colors-green-100: #dcfce7;
+    --__proxylist__-colors-green-200: #bbf7d0;
+    --__proxylist__-colors-green-300: #86efac;
+    --__proxylist__-colors-green-400: #4ade80;
+    --__proxylist__-colors-green-500: #22c55e;
+    --__proxylist__-colors-green-600: #16a34a;
+    --__proxylist__-colors-green-700: #15803d;
+    --__proxylist__-colors-green-800: #166534;
+    --__proxylist__-colors-green-900: #14532d;
+    --__proxylist__-colors-green-950: #052e16;
+    --__proxylist__-colors-lime-50: #f7fee7;
+    --__proxylist__-colors-lime-100: #ecfccb;
+    --__proxylist__-colors-lime-200: #d9f99d;
+    --__proxylist__-colors-lime-300: #bef264;
+    --__proxylist__-colors-lime-400: #a3e635;
+    --__proxylist__-colors-lime-500: #84cc16;
+    --__proxylist__-colors-lime-600: #65a30d;
+    --__proxylist__-colors-lime-700: #4d7c0f;
+    --__proxylist__-colors-lime-800: #3f6212;
+    --__proxylist__-colors-lime-900: #365314;
+    --__proxylist__-colors-lime-950: #1a2e05;
+    --__proxylist__-colors-yellow-50: #fefce8;
+    --__proxylist__-colors-yellow-100: #fef9c3;
+    --__proxylist__-colors-yellow-200: #fef08a;
+    --__proxylist__-colors-yellow-300: #fde047;
+    --__proxylist__-colors-yellow-400: #facc15;
+    --__proxylist__-colors-yellow-500: #eab308;
+    --__proxylist__-colors-yellow-600: #ca8a04;
+    --__proxylist__-colors-yellow-700: #a16207;
+    --__proxylist__-colors-yellow-800: #854d0e;
+    --__proxylist__-colors-yellow-900: #713f12;
+    --__proxylist__-colors-yellow-950: #422006;
+    --__proxylist__-colors-amber-50: #fffbeb;
+    --__proxylist__-colors-amber-100: #fef3c7;
+    --__proxylist__-colors-amber-200: #fde68a;
+    --__proxylist__-colors-amber-300: #fcd34d;
+    --__proxylist__-colors-amber-400: #fbbf24;
+    --__proxylist__-colors-amber-500: #f59e0b;
+    --__proxylist__-colors-amber-600: #d97706;
+    --__proxylist__-colors-amber-700: #b45309;
+    --__proxylist__-colors-amber-800: #92400e;
+    --__proxylist__-colors-amber-900: #78350f;
+    --__proxylist__-colors-amber-950: #451a03;
+    --__proxylist__-colors-orange-50: #fff7ed;
+    --__proxylist__-colors-orange-100: #ffedd5;
+    --__proxylist__-colors-orange-200: #fed7aa;
+    --__proxylist__-colors-orange-300: #fdba74;
+    --__proxylist__-colors-orange-400: #fb923c;
+    --__proxylist__-colors-orange-500: #f97316;
+    --__proxylist__-colors-orange-600: #ea580c;
+    --__proxylist__-colors-orange-700: #c2410c;
+    --__proxylist__-colors-orange-800: #9a3412;
+    --__proxylist__-colors-orange-900: #7c2d12;
+    --__proxylist__-colors-orange-950: #431407;
+    --__proxylist__-colors-red-50: #fef2f2;
+    --__proxylist__-colors-red-100: #fee2e2;
+    --__proxylist__-colors-red-200: #fecaca;
+    --__proxylist__-colors-red-300: #fca5a5;
+    --__proxylist__-colors-red-400: #f87171;
+    --__proxylist__-colors-red-500: #ef4444;
+    --__proxylist__-colors-red-600: #dc2626;
+    --__proxylist__-colors-red-700: #b91c1c;
+    --__proxylist__-colors-red-800: #991b1b;
+    --__proxylist__-colors-red-900: #7f1d1d;
+    --__proxylist__-colors-red-950: #450a0a;
+    --__proxylist__-colors-neutral-50: #fafafa;
+    --__proxylist__-colors-neutral-100: #f5f5f5;
+    --__proxylist__-colors-neutral-200: #e5e5e5;
+    --__proxylist__-colors-neutral-300: #d4d4d4;
+    --__proxylist__-colors-neutral-400: #a3a3a3;
+    --__proxylist__-colors-neutral-500: #737373;
+    --__proxylist__-colors-neutral-600: #525252;
+    --__proxylist__-colors-neutral-700: #404040;
+    --__proxylist__-colors-neutral-800: #262626;
+    --__proxylist__-colors-neutral-900: #171717;
+    --__proxylist__-colors-neutral-950: #0a0a0a;
+    --__proxylist__-colors-stone-50: #fafaf9;
+    --__proxylist__-colors-stone-100: #f5f5f4;
+    --__proxylist__-colors-stone-200: #e7e5e4;
+    --__proxylist__-colors-stone-300: #d6d3d1;
+    --__proxylist__-colors-stone-400: #a8a29e;
+    --__proxylist__-colors-stone-500: #78716c;
+    --__proxylist__-colors-stone-600: #57534e;
+    --__proxylist__-colors-stone-700: #44403c;
+    --__proxylist__-colors-stone-800: #292524;
+    --__proxylist__-colors-stone-900: #1c1917;
+    --__proxylist__-colors-stone-950: #0c0a09;
+    --__proxylist__-colors-zinc-50: #fafafa;
+    --__proxylist__-colors-zinc-100: #f4f4f5;
+    --__proxylist__-colors-zinc-200: #e4e4e7;
+    --__proxylist__-colors-zinc-300: #d4d4d8;
+    --__proxylist__-colors-zinc-400: #a1a1aa;
+    --__proxylist__-colors-zinc-500: #71717a;
+    --__proxylist__-colors-zinc-600: #52525b;
+    --__proxylist__-colors-zinc-700: #3f3f46;
+    --__proxylist__-colors-zinc-800: #27272a;
+    --__proxylist__-colors-zinc-900: #18181b;
+    --__proxylist__-colors-zinc-950: #09090b;
+    --__proxylist__-colors-gray-50: #f9fafb;
+    --__proxylist__-colors-gray-100: #f3f4f6;
+    --__proxylist__-colors-gray-200: #e5e7eb;
+    --__proxylist__-colors-gray-300: #d1d5db;
+    --__proxylist__-colors-gray-400: #9ca3af;
+    --__proxylist__-colors-gray-500: #6b7280;
+    --__proxylist__-colors-gray-600: #4b5563;
+    --__proxylist__-colors-gray-700: #374151;
+    --__proxylist__-colors-gray-800: #1f2937;
+    --__proxylist__-colors-gray-900: #111827;
+    --__proxylist__-colors-gray-950: #030712;
+    --__proxylist__-colors-slate-50: #f8fafc;
+    --__proxylist__-colors-slate-100: #f1f5f9;
+    --__proxylist__-colors-slate-200: #e2e8f0;
+    --__proxylist__-colors-slate-300: #cbd5e1;
+    --__proxylist__-colors-slate-400: #94a3b8;
+    --__proxylist__-colors-slate-500: #64748b;
+    --__proxylist__-colors-slate-600: #475569;
+    --__proxylist__-colors-slate-700: #334155;
+    --__proxylist__-colors-slate-800: #1e293b;
+    --__proxylist__-colors-slate-900: #0f172a;
+    --__proxylist__-colors-slate-950: #020617;
+    --__proxylist__-blurs-sm: 4px;
+    --__proxylist__-blurs-base: 8px;
+    --__proxylist__-blurs-md: 12px;
+    --__proxylist__-blurs-lg: 16px;
+    --__proxylist__-blurs-xl: 24px;
+    --__proxylist__-blurs-2xl: 40px;
+    --__proxylist__-blurs-3xl: 64px;
+    --__proxylist__-spacing-0: 0rem;
+    --__proxylist__-spacing-1: .25rem;
+    --__proxylist__-spacing-2: .5rem;
+    --__proxylist__-spacing-3: .75rem;
+    --__proxylist__-spacing-4: 1rem;
+    --__proxylist__-spacing-5: 1.25rem;
+    --__proxylist__-spacing-6: 1.5rem;
+    --__proxylist__-spacing-7: 1.75rem;
+    --__proxylist__-spacing-8: 2rem;
+    --__proxylist__-spacing-9: 2.25rem;
+    --__proxylist__-spacing-10: 2.5rem;
+    --__proxylist__-spacing-11: 2.75rem;
+    --__proxylist__-spacing-12: 3rem;
+    --__proxylist__-spacing-14: 3.5rem;
+    --__proxylist__-spacing-16: 4rem;
+    --__proxylist__-spacing-20: 5rem;
+    --__proxylist__-spacing-24: 6rem;
+    --__proxylist__-spacing-28: 7rem;
+    --__proxylist__-spacing-32: 8rem;
+    --__proxylist__-spacing-36: 9rem;
+    --__proxylist__-spacing-40: 10rem;
+    --__proxylist__-spacing-44: 11rem;
+    --__proxylist__-spacing-48: 12rem;
+    --__proxylist__-spacing-52: 13rem;
+    --__proxylist__-spacing-56: 14rem;
+    --__proxylist__-spacing-60: 15rem;
+    --__proxylist__-spacing-64: 16rem;
+    --__proxylist__-spacing-72: 18rem;
+    --__proxylist__-spacing-80: 20rem;
+    --__proxylist__-spacing-96: 24rem;
+    --__proxylist__-spacing-0\.5: .125rem;
+    --__proxylist__-spacing-1\.5: .375rem;
+    --__proxylist__-spacing-2\.5: .625rem;
+    --__proxylist__-spacing-3\.5: .875rem;
+    --__proxylist__-sizes-0: 0rem;
+    --__proxylist__-sizes-1: .25rem;
+    --__proxylist__-sizes-2: .5rem;
+    --__proxylist__-sizes-3: .75rem;
+    --__proxylist__-sizes-4: 1rem;
+    --__proxylist__-sizes-5: 1.25rem;
+    --__proxylist__-sizes-6: 1.5rem;
+    --__proxylist__-sizes-7: 1.75rem;
+    --__proxylist__-sizes-8: 2rem;
+    --__proxylist__-sizes-9: 2.25rem;
+    --__proxylist__-sizes-10: 2.5rem;
+    --__proxylist__-sizes-11: 2.75rem;
+    --__proxylist__-sizes-12: 3rem;
+    --__proxylist__-sizes-14: 3.5rem;
+    --__proxylist__-sizes-16: 4rem;
+    --__proxylist__-sizes-20: 5rem;
+    --__proxylist__-sizes-24: 6rem;
+    --__proxylist__-sizes-28: 7rem;
+    --__proxylist__-sizes-32: 8rem;
+    --__proxylist__-sizes-36: 9rem;
+    --__proxylist__-sizes-40: 10rem;
+    --__proxylist__-sizes-44: 11rem;
+    --__proxylist__-sizes-48: 12rem;
+    --__proxylist__-sizes-52: 13rem;
+    --__proxylist__-sizes-56: 14rem;
+    --__proxylist__-sizes-60: 15rem;
+    --__proxylist__-sizes-64: 16rem;
+    --__proxylist__-sizes-72: 18rem;
+    --__proxylist__-sizes-80: 20rem;
+    --__proxylist__-sizes-96: 24rem;
+    --__proxylist__-sizes-0\.5: .125rem;
+    --__proxylist__-sizes-1\.5: .375rem;
+    --__proxylist__-sizes-2\.5: .625rem;
+    --__proxylist__-sizes-3\.5: .875rem;
+    --__proxylist__-sizes-xs: 20rem;
+    --__proxylist__-sizes-sm: 24rem;
+    --__proxylist__-sizes-md: 28rem;
+    --__proxylist__-sizes-lg: 32rem;
+    --__proxylist__-sizes-xl: 36rem;
+    --__proxylist__-sizes-2xl: 42rem;
+    --__proxylist__-sizes-3xl: 48rem;
+    --__proxylist__-sizes-4xl: 56rem;
+    --__proxylist__-sizes-5xl: 64rem;
+    --__proxylist__-sizes-6xl: 72rem;
+    --__proxylist__-sizes-7xl: 80rem;
+    --__proxylist__-sizes-8xl: 90rem;
+    --__proxylist__-sizes-prose: 65ch;
+    --__proxylist__-sizes-full: 100%;
+    --__proxylist__-sizes-min: min-content;
+    --__proxylist__-sizes-max: max-content;
+    --__proxylist__-sizes-fit: fit-content;
+    --__proxylist__-sizes-breakpoint-sm: 640px;
+    --__proxylist__-sizes-breakpoint-md: 768px;
+    --__proxylist__-sizes-breakpoint-lg: 1024px;
+    --__proxylist__-sizes-breakpoint-xl: 1280px;
+    --__proxylist__-sizes-breakpoint-2xl: 1536px;
+    --__proxylist__-animations-spin: spin 1s linear infinite;
+    --__proxylist__-animations-ping: ping 1s cubic-bezier(0, 0, .2, 1) infinite;
+    --__proxylist__-animations-pulse: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite;
+    --__proxylist__-animations-bounce: bounce 1s infinite;
+    --__proxylist__-breakpoints-sm: 640px;
+    --__proxylist__-breakpoints-md: 768px;
+    --__proxylist__-breakpoints-lg: 1024px;
+    --__proxylist__-breakpoints-xl: 1280px;
+    --__proxylist__-breakpoints-2xl: 1536px ;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes ping {
+    75%, to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  @keyframes pulse {
+    50% {
+      opacity: .5;
+    }
+  }
+  @keyframes bounce {
+    0%, to {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(.8, 0, 1, 1);
+    }
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0, 0, .2, 1);
+    }
+  }
+}
+@layer utilities {
+  .__proxylist__-bg_linear-gradient\(109\.6deg\,_rgb\(36\,_45\,_57\)_11\.2\%\,_rgb\(16\,_37\,_60\)_51\.2\%\,_rgb\(0\,_0\,_0\)_98\.6\%\)\; {
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+  }
+  .__proxylist__-text_white {
+    color: var(--__proxylist__-colors-white);
+  }
+  .__proxylist__-overflow-y_scroll {
+    overflow-y: scroll;
+  }
+  .__proxylist__-m_0_auto {
+    margin: 0 auto;
+  }
+  .__proxylist__-m_0px {
+    margin: 0;
+  }
+  .__proxylist__-w_200px {
+    width: 200px;
+  }
+  .__proxylist__-bg_red {
+    background-color: red;
+  }
+  .__proxylist__-mt_4 {
+    margin-top: var(--__proxylist__-spacing-4);
+  }
+  .__proxylist__-d_flex {
+    display: flex;
+  }
+  .__proxylist__-justify_space-between {
+    justify-content: space-between;
+  }
+  .__proxylist__-p_4rem_2rem {
+    padding: 4rem 2rem;
+  }
+  .__proxylist__-p_2rem_0rem {
+    padding: 2rem 0rem;
+  }
+  .__proxylist__-h_100\% {
+    height: 100%;
+  }
+  .__proxylist__-pos_relative {
+    position: relative;
+  }
+  .__proxylist__-max-w_8xl {
+    max-width: var(--__proxylist__-sizes-8xl);
+  }
+  .__proxylist__-mx_auto {
+    margin-inline: auto;
+  }
+  .__proxylist__-px_4 {
+    padding-inline: var(--__proxylist__-spacing-4);
+  }
+  @media screen and (min-width: 40em) {
+    .sm\:__proxylist__-max-w_token\(sizes\.breakpoint-sm\) {
+      max-width: var(--__proxylist__-sizes-breakpoint-sm);
+    }
+  }
+  @media screen and (min-width: 48em) {
+    .md\:__proxylist__-max-w_token\(sizes\.breakpoint-md\) {
+      max-width: var(--__proxylist__-sizes-breakpoint-md);
+    }
+    .md\:__proxylist__-px_6 {
+      padding-inline: var(--__proxylist__-spacing-6);
+    }
+  }
+  @media screen and (min-width: 64em) {
+    .lg\:__proxylist__-max-w_token\(sizes\.breakpoint-lg\) {
+      max-width: var(--__proxylist__-sizes-breakpoint-lg);
+    }
+    .lg\:__proxylist__-px_8 {
+      padding-inline: var(--__proxylist__-spacing-8);
+    }
+  }
+  @media screen and (min-width: 80em) {
+    .xl\:__proxylist__-max-w_token\(sizes\.breakpoint-xl\) {
+      max-width: var(--__proxylist__-sizes-breakpoint-xl);
+    }
+  }
+  @media screen and (min-width: 96em) {
+    .\32xl\:__proxylist__-max-w_token\(sizes\.breakpoint-2xl\) {
+      max-width: var(--__proxylist__-sizes-breakpoint-2xl);
+    }
+  }
+}
+/*# sourceMappingURL=/web-build/_assets/index-YUHC7X4E.css.map */
