@@ -2,7 +2,7 @@ import * as security from './config/security';
 
 //https://nitro.unjs.io/config
 export default defineNitroConfig({
-  preset: "vercel",
+  preset: "vercel-edge",
   output: {
     dir: ".build/nitro-server-build",
     serverDir: ".build/nitro-server-build/server",
@@ -19,4 +19,9 @@ export default defineNitroConfig({
   routeRules: {
     "/": {},
   },
+  wasm: {
+    rollup: {
+      targetEnv: 'browser'
+    }
+  }
 });
