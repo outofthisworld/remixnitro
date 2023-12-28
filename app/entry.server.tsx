@@ -1,7 +1,6 @@
 import { RemixServer } from "@remix-run/react";
 import type { EntryContext, HandleDataRequestFunction } from "~/runtime.server";
 import { handleRequest } from "~/runtime.server";
-import { withETag, withSecurityHeaders, xssProtection } from "./helpers.server";
 
 export default async function (
   request: Request,
@@ -18,12 +17,12 @@ export default async function (
     remixServer
   )) as Response;
 
-  return await withETag(request, response);
+  return response;
 }
 
 export let handleDataRequest: HandleDataRequestFunction = async (
   response: Response,
   { request }
 ) => {
-  return withETag(request, response);
+  return response;
 };
