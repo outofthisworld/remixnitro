@@ -1,10 +1,8 @@
 import {
+  LoaderFunction,
   LoaderFunctionArgs,
   defer,
-  type MetaFunction,
-  HeadersFunction,
-  LoaderFunction,
-  HeadersArgs,
+  type MetaFunction
 } from "~/runtime.server";
 
 import { Await, Link, useFetcher, useLoaderData } from "@remix-run/react";
@@ -18,20 +16,19 @@ export const meta: MetaFunction = () => {
   return [{ title: "ProxyList - Home" }];
 };
 
+/*
 export const headers: HeadersFunction = (headers: HeadersArgs) => {
   return {
     "Cache-Control": headers.loaderHeaders.get("Cache-Control")!,
     ETag: headers.loaderHeaders.get("ETag")!,
   };
-};
+};*/
 
 export const loader: LoaderFunction = ({
   request,
   context,
   params,
 }: LoaderFunctionArgs) => {
-  // const etag = request.headers.get("If-None-Match");
-
   return defer(
     {
       myData: new Promise((res) => {
