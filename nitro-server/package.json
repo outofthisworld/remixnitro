@@ -9,6 +9,7 @@
     "start": "node .build/nitro-server-build/server/index.mjs"
   },
   "dependencies": {
+    "@vercel/remix": "^2.4.1",
     "defu": "^6.1.3",
     "nitropack": "latest"
   }
