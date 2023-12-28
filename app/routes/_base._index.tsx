@@ -10,7 +10,6 @@ import { Suspense } from "react";
 import Button from "~/components/button";
 import Component from "~/components/component";
 
-export const config = { runtime: "edge" };
 
 export const meta: MetaFunction = () => {
   return [{ title: "ProxyList - Home" }];

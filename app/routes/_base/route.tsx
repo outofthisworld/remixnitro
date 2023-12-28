@@ -5,8 +5,6 @@ import type { MetaFunction } from "~/runtime.server";
 import Footer from "./footer";
 import Header from "./header";
 
-export const config = { runtime: "edge" };
-
 export const meta: MetaFunction = () => [{ title: "ProxyList" }];
 
 export default function App() {
