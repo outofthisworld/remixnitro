@@ -1,6 +1,10 @@
 import { RemixServer } from "@remix-run/react";
-import type { EntryContext, HandleDataRequestFunction } from "~/runtime.server";
-import { handleRequest } from "~/runtime.server";
+
+import {
+  type EntryContext,
+  type HandleDataRequestFunction,
+  handleRequest,
+} from "~/runtime.server";
 
 export default async function (
   request: Request,
