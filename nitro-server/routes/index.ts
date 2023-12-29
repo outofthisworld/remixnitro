@@ -4,7 +4,7 @@ import { ServerBuild, createRequestHandler } from "@vercel/remix";
 /**
  * Remix server build as entrypoint.
  */
-import * as build from "../.build/remix-server-build/index.js";
+import * as build from "../.build/remix-server-build/index";
 
 /**
  * Serve remix.
