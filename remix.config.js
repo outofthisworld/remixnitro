@@ -7,6 +7,6 @@ export default {
   // serverBuildPath: "build/index.js",
   postcss: true,
   assetsBuildDirectory: "./public/web-build",
-  serverBuildPath: "./nitro-server/.build/remix-server-build/index.mjs",
+  serverBuildPath: "./nitro-server/.build/remix-server-build/index.js",
   publicPath: "/web-build/",
 };
