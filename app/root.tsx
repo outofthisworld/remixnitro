@@ -12,8 +12,6 @@ import type { LinkDescriptor, LinksFunction } from "~/runtime.server";
 import styles from "./index.css";
 import * as classes from './root.classes';
 
-export const config = { runtime: 'nodejs' };
-
 export const links: LinksFunction = () => {
   return [
     { rel: "preload", href: styles, as: "style" },
