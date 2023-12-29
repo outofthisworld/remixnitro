@@ -7,6 +7,8 @@ import Header from "./header";
 
 export const meta: MetaFunction = () => [{ title: "ProxyList" }];
 
+export const config = { runtime: 'nodejs' };
+
 export default function App() {
   return (
     <Container className={classes.container}>
