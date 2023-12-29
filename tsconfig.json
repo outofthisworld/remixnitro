@@ -1,12 +1,12 @@
 {
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["nitro-server"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
+    "module": "ES2022",
     "resolveJsonModule": true,
     "target": "ES2022",
     "strict": true,
@@ -17,7 +17,6 @@
       "~/*": ["./app/*"],
       "@styled-system/*": ["./styled-system/*"]
     },
-
     // Remix takes care of building everything in `remix build`.
     "noEmit": true
   }

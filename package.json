@@ -1,13 +1,13 @@
 {
-  "name": "my-remix-app",
+  "name": "proxylist",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "prepare": "panda codegen && pnpm --prefix ./nitro-server install --no-frozen-lockfile && remix build",
-    "build": "pnpm --prefix ./nitro-server build",
-    "dev": "remix dev -c \"pnpm --prefix ./nitro-server dev\" --manual",
-    "start": "pnpm --prefix ./nitro-server start",
+    "prepare": "panda codegen && remix-nitro prepare",
+    "build": "remix-nitro build",
+    "dev": "remix dev -c \"remix-nitro dev\"",
+    "start": "remix-nitro start",
     "typecheck": "tsc"
   },
   "dependencies": {

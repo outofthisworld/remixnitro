@@ -50,7 +50,7 @@ export default function Index() {
 
   return (
     <>
-      <Component>Hello</Component>
+      <Component>Ttttttt1ff23456789101112131445910920</Component>
       <Suspense fallback={<p>...Loading</p>}>
         <Await resolve={myData}>
           {(myData) => <p>{JSON.stringify(myData)}</p>}
