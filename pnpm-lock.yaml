@@ -36,8 +36,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   remix-nitro:
-    specifier: ^0.0.3
-    version: 0.0.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
+    specifier: ^0.0.4
+    version: 0.0.4(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
 
 devDependencies:
   '@pandacss/dev':
@@ -7777,8 +7777,8 @@ packages:
       unified: 10.1.2
     dev: true
 
-  /remix-nitro@0.0.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-TSXqLxWv1w/by3UhegjTQlKXEDzpl2nDhebRd6W0wr7MkWc7NEXEy7bJrM3A/4b/PUaJPjrCOqBQT+ehzD5MEQ==}
+  /remix-nitro@0.0.4(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-i43yhR8JJw2hu0xJgqpNVmwynjNFMCu6+y52YXBoPUD7dcIyrnv6vuvzzPjKxwayJ0JNqo9seLNOYF5U0pvLEw==}
     hasBin: true
     dependencies:
       '@remix-run/node': 2.4.1(typescript@5.1.6)
