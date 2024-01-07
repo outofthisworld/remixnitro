@@ -8,3 +8,4 @@ public/web-build
 */**/*.env*
 remix-nitro
 .nitrodev
+remix
