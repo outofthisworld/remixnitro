@@ -36,8 +36,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   remix-nitro:
-    specifier: github:outofthisworld/remix-nitro
-    version: github.com/outofthisworld/remix-nitro/a946ed1841157551368d02c14f6f3ed502591ba9(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
+    specifier: ^0.0.0
+    version: 0.0.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
 
 devDependencies:
   '@pandacss/dev':
@@ -7777,6 +7777,35 @@ packages:
       unified: 10.1.2
     dev: true
 
+  /remix-nitro@0.0.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-09JQkE4ZKsl4W7Z9wAcSXG22ut96DP/NQqmGvs3CMbzx2ZppthxjtAnXlCcWlxqrk5JpaSmVoCDVkfqdIwr91g==}
+    hasBin: true
+    dependencies:
+      '@remix-run/node': 2.4.1(typescript@5.1.6)
+      '@vercel/remix': 2.4.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
+      glob: 10.3.10
+      nitropack: 2.8.1
+    transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@upstash/redis'
+      - '@vercel/kv'
+      - encoding
+      - idb-keyval
+      - react
+      - react-dom
+      - supports-color
+      - typescript
+      - xml2js
+    dev: false
+
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
@@ -9140,37 +9169,3 @@ packages:
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: true
-
-  github.com/outofthisworld/remix-nitro/a946ed1841157551368d02c14f6f3ed502591ba9(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6):
-    resolution: {commit: a946ed1841157551368d02c14f6f3ed502591ba9, repo: git+ssh://git@github.com/outofthisworld/remix-nitro.git, type: git}
-    id: github.com/outofthisworld/remix-nitro/a946ed1841157551368d02c14f6f3ed502591ba9
-    name: remix-nitro
-    version: 0.0.0
-    hasBin: true
-    prepare: true
-    requiresBuild: true
-    dependencies:
-      '@remix-run/node': 2.4.1(typescript@5.1.6)
-      '@vercel/remix': 2.4.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
-      glob: 10.3.10
-      nitropack: 2.8.1
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - encoding
-      - idb-keyval
-      - react
-      - react-dom
-      - supports-color
-      - typescript
-      - xml2js
-    dev: false
