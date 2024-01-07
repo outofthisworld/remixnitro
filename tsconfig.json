@@ -1,5 +1,11 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "remix.env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".nitrodev/types/nitro.d.ts",
+    "node_modules/.pnpm/github.com+outofthisworld+remix-nitro@4741db8f1f9c7b5570c2647e81d4dfe90905e445_react-dom@18.2_cs77wkoh4k6dqxh7qzud2iqd5e/node_modules/remix-nitro/**/*"
+  ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,
@@ -15,7 +21,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"],
-      "@styled-system/*": ["./styled-system/*"]
+      "@styled-system/*": ["./styled-system/*"],
+      "#imports": ["./.nitrodev/types/nitro-imports"]
     },
     // Remix takes care of building everything in `remix build`.
     "noEmit": true
