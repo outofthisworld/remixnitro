@@ -7,5 +7,5 @@ public/web-build
 .vercel
 */**/*.env*
 remix-nitro
-.nitrodev
 remix
+remix-frontend
